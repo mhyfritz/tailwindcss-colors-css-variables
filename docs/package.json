@@ -1,0 +1,10 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "author": "Markus Hsi-Yang Fritz",
+  "license": "MIT"
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>tailwindcss-colors-css-variables</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@1.1.2/dist/tailwind.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body class="p-12">
+    <div id="app">
+      <link ref="style" rel="stylesheet" href="tailwindcss-colors.css" />
+      <div v-for="v in vars" :key="v.property" class="flex items-center mb-2">
+        <span
+          class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
+          :style="`background-color: ${v.value};`"
+        ></span>
+        <span class="font-mono">{{ v.property }}</span>
+      </div>
+    </div>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          vars: []
+        },
+        mounted() {
+          const rule = this.$refs.style.sheet.cssRules[0];
+          for (const prop of rule.style) {
+            this.vars.push({
+              property: prop,
+              value: rule.style.getPropertyValue(prop)
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
