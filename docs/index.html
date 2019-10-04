@@ -17,7 +17,7 @@
       <div v-for="v in vars" :key="v.property" class="flex items-center mb-2">
         <span
           class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
-          :style="`background-color: ${v.value};`"
+          :style="`background-color: var(${v.property});`"
         ></span>
         <span class="font-mono">{{ v.property }} (`{{ v.value }}`)</span>
       </div>
