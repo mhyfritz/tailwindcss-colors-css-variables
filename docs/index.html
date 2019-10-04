@@ -9,17 +9,23 @@
       rel="stylesheet"
       href="https://unpkg.com/tailwindcss@1.1.2/dist/tailwind.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body class="p-12">
     <div id="app">
       <link ref="style" rel="stylesheet" href="tailwindcss-colors.css" />
-      <div v-for="v in vars" :key="v.property" class="flex items-center mb-2">
-        <span
-          class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
-          :style="`background-color: var(${v.property});`"
-        ></span>
-        <span class="font-mono">{{ v.property }} (`{{ v.value }}`)</span>
+      <div v-for="(vars, g) in varsGrouped" :key="g" class="mb-8">
+        <h2 class="text-lg font-medium text-gray-800 mb-2">{{ g }}</h2>
+        <div v-for="v in vars" :key="v.property" class="flex items-center mb-2">
+          <span
+            class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
+            :style="`background-color: var(${v.property});`"
+          ></span>
+          <span class="font-mono text-gray-600"
+            >{{ v.property }} (`{{ v.value }}`)</span
+          >
+        </div>
       </div>
     </div>
     <script>
@@ -27,6 +33,14 @@
         el: "#app",
         data: {
           vars: []
+        },
+        computed: {
+          varsGrouped() {
+            return _.groupBy(
+              this.vars,
+              ({ property }) => /--tw-color-([^-]+)/.exec(property)[1]
+            );
+          }
         },
         mounted() {
           const rule = this.$refs.style.sheet.cssRules[0];

@@ -30,3 +30,7 @@ Options:
   -p, --prefix <string>  variable name prefix (default: "tw-color-")
   -h, --help             output usage information
 ```
+
+## Full palette
+
+![Color palette](colors.png)
