@@ -1,7 +1,7 @@
 # tailwindcss-colors-css-variables
 
-The color palette from
-[Tailwind CSS](https://github.com/tailwindcss/tailwindcss)
+The [default color palette](https://tailwindcss.com/docs/customizing-colors#default-color-palette)
+from [Tailwind CSS](https://github.com/tailwindcss/tailwindcss)
 as CSS custom properties (CSS variables).
 
 `css/tailwindcss-colors.css`:

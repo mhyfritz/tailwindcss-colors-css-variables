@@ -7,11 +7,29 @@
   "scripts": {
     "build": "src/cli.js"
   },
-  "keywords": [],
+  "keywords": [
+    "tailwindcss",
+    "css",
+    "color",
+    "colors",
+    "color-palette",
+    "color-scheme",
+    "color-theme",
+    "design"
+  ],
   "author": "Markus Hsi-Yang Fritz",
   "license": "MIT",
   "devDependencies": {
     "commander": "^3.0.2",
     "tailwindcss": "1.1.2"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhyfritz/tailwindcss-colors-css-variables.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mhyfritz/tailwindcss-colors-css-variables/issues"
+  },
+  "homepage": "https://github.com/mhyfritz/tailwindcss-colors-css-variables#readme"
 }
