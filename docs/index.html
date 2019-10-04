@@ -19,7 +19,7 @@
           class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
           :style="`background-color: ${v.value};`"
         ></span>
-        <span class="font-mono">{{ v.property }}</span>
+        <span class="font-mono">{{ v.property }} (`{{ v.value }}`)</span>
       </div>
     </div>
     <script>
@@ -33,7 +33,7 @@
           for (const prop of rule.style) {
             this.vars.push({
               property: prop,
-              value: rule.style.getPropertyValue(prop)
+              value: rule.style.getPropertyValue(prop).trim()
             });
           }
         }
