@@ -11,15 +11,22 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .color {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05),
+          0px 0px 0px 1px inset rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body class="p-12">
     <div id="app">
       <link ref="style" rel="stylesheet" href="tailwindcss-colors.css" />
-      <div v-for="(vars, g) in varsGrouped" :key="g" class="mb-8">
-        <h2 class="text-lg font-medium text-gray-800 mb-2">{{ g }}</h2>
+      <div v-for="(vars, color) in varsGrouped" :key="g" class="mb-8">
+        <h2 class="text-lg font-medium text-gray-800 mb-2">{{ color }}</h2>
         <div v-for="v in vars" :key="v.property" class="flex items-center mb-2">
           <span
-            class="inline-block w-16 h-16 rounded-full shadow-lg mr-4 border border-solid border-gray-100"
+            class="color inline-block w-16 h-16 rounded-full mr-4"
             :style="`background-color: var(${v.property});`"
           ></span>
           <span class="font-mono text-gray-600"
