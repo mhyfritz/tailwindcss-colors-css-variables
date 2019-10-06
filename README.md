@@ -19,6 +19,23 @@ as CSS custom properties (CSS variables).
 }
 ```
 
+## Installation
+
+Node
+
+```bash
+npm install tailwindcss-colors-css-variables
+```
+
+Browser
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tailwindcss-colors-css-variables"
+/>
+```
+
 ## CLI usage
 
 ```bash
